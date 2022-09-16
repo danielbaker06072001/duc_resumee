@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header/header';
+import Landing from './components/content/landing';
+import About from './components/content/about';
+import Portfolio from './components/content/portfolio';
+import Card from './components/card/Card';
+import GetInTouch from './components/content/getInTouch';
+import {Data} from './components/data/data';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    Data.map(element => console.log(element))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+      <Landing/>
+      <About/>
+
+      <Portfolio/>
+      <div className = "card-display" style = {{display: "flex", flexWrap: "wrap", justifyContent: "center", backgroundColor: "#424242"}}>
+        {Data.map(element => <Card Project_name = {element.Project_name} Project_image = {element.Project_image} Project_description = {element.Project_description} Project_git = {element.Project_git}/>)}
+      </div>
+      <GetInTouch/>
     </div>
   );
 }
+
 
 export default App;

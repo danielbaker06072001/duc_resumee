@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.header{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-around;
+    margin-bottom: 0;
+    background-color: #424242;
+}
+
+.header > a{ 
+    color: white;
+    text-decoration: none;
+}
